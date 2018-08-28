@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
   },
   stackNav: {
     backgroundColor: 'white',
-    elevation: 0
+    elevation: 0,
   },
   labelTabNav: {
     fontSize: Metrics.screenHeight * 0.03,
-    color: 'grey'
+    color: 'grey',
+    marginVertical: 1,
   }
 })
 
@@ -50,6 +51,7 @@ const TabNavigator = createTabNavigator(
     Terpopuler: { screen: Home, },
     Politik: { screen: Home, }
   }, {
+    lazy: true,
     tabBarOptions: {
       indicatorStyle: { backgroundColor: 'transparent' },
       labelStyle: styles.labelTabNav,
