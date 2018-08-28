@@ -7,8 +7,8 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-
+import { Platform, StyleSheet, Text, View, Image } from 'react-native';
+import { Tabs, Tab, Header } from "native-base";
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -18,10 +18,13 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class Home extends Component<Props> {
+  componentDidMount() {
+    console.debug('asdsa')
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        
       </View>
     );
   }
