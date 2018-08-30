@@ -7,9 +7,9 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Image, ImageBackground } from 'react-native';
-import { Content, Container, Text, Icon, H3, Card, CardItem } from "native-base";
-import { Metrics } from '../../Style';
+import { FlatList, Platform, StyleSheet, View, Image, ImageBackground } from 'react-native';
+import { Content, Container, Text, Icon, H3, Card, CardItem, Left, Body } from "native-base";
+import { Metrics, text } from '../../Style';
 
 type Props = {};
 export default class Home extends Component<Props> {
@@ -56,12 +56,46 @@ export default class Home extends Component<Props> {
             <View style={{ flex: 1 }}>
             </View>
           </View>
+          <FlatList
+            data={dataDummy}
+            renderItem={({ item }) => {
+              return (
+                <Card transparent>
+                  <CardItem>
+                    <View style={{ flexDirection: 'row' }}>
+                      <View style={{ flex: 1, paddingRight: 10 }}>
+                        <Image
+                          resizeMode='stretch'
+                          style={{ maxHeight: Metrics.screenHeight * 0.175, minHeight: Metrics.screenHeight * 0.175, width: null, flex: 1 }}
+                          source={{ uri: 'https://via.placeholder.com/350x350' }} />
+                      </View>
+                      <View style={{ flex: 2 }}>
+                        <View style={{ justifyContent: 'space-between', alignContent: 'space-between', flex: 1 }}>
+                          <H3>{item.title}</H3>
+                          <View style={{ flexDirection: 'row', justifyContent: 'space-between', flex: 1 }}>
+                            <Text style={text.bottom} note>Time</Text>
+                            <Icon style={text.bottom} type='MaterialIcons' name='bookmark' />
+                          </View>
+                        </View>
+                      </View>
+                    </View>
+                  </CardItem>
+                </Card>
+              )
+            }}
+
+          />
         </Content>
       </Container>
     );
   }
 }
 
+const dataDummy = [
+  { title: 'The standard Lorem Ipsum passage, used since the 1500s' },
+  { title: 'The standard Lorem Ipsum passage, used since the 1500s' },
+  { title: 'The standard Lorem Ipsum passage, used since the 1500s' }
+]
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 10, },
   imageBackground: {

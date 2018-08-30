@@ -1,4 +1,4 @@
-import { Dimensions } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export const Metrics = {
   screenWidth: Dimensions.get('screen').width,
@@ -6,3 +6,9 @@ export const Metrics = {
   windowHeight: Dimensions.get('window').height,
   screenHeight: Dimensions.get('screen').height
 }
+
+export const text = StyleSheet.create({
+  bottom: {
+    textAlignVertical: 'bottom'
+  }
+})
